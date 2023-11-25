@@ -34,7 +34,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>LendHub - DeFi Lending and Borrowing Protocol</title>
+        <title>Defi Connect- DeFi Lending and Borrowing Protocol</title>
         <link rel="icon" href="/lendhub-favi.png" />
       </Head>
 

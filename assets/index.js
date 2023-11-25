@@ -6,5 +6,5 @@ export { default as wethIcon } from "./weth-icon.svg";
 export { default as linkIcon } from "./link-icon.png";
 
 export { default as ether } from "./home-ether.svg";
-export { default as logo } from "./logo.png";
+export { default as defi_connectlogo} from "./defi_connectlogo.png";
 export { default as metamask } from "./metamask.png";

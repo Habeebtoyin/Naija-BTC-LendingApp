@@ -25,11 +25,11 @@ module.exports = {
       chainId: 11155111,
     },
 
-    mumbai: {
-      url: process.env.INFURA_MUMBAI_API_URL,
-      accounts: [process.env.MAIN_ACCOUNT],
-      chainIds: 80001, // mumbai testnet
-    },
+    // mumbai: {
+    //   url: process.env.INFURA_MUMBAI_API_URL,
+    //   accounts: [process.env.MAIN_ACCOUNT],
+    //   chainIds: 80001, // mumbai testnet
+    // },
   },
 
   gasReporter: {

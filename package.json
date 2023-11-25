@@ -20,7 +20,7 @@
     "sol2uml": "^2.5.3",
     "solc": "^0.8.19",
     "truffle-contract-size": "^2.0.1",
-    "web3": "^1.9.0",
+    "web3": "^4.2.1",
     "web3modal": "^1.9.12"
   },
   "devDependencies": {
