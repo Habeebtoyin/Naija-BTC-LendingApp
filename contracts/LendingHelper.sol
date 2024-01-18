@@ -69,7 +69,7 @@ contract LendingHelper {
         // --------------------------------------------------
         bytes32 symbol = getKeccackHash(addressToTokenMap.getSymbol(_tokenAddress));
         if(symbol == getKeccackHash('ETH')) {
-            return 1725;
+            return 2534;
         }
         else if(symbol == getKeccackHash('DAI')) {
             return 1;
@@ -77,8 +77,8 @@ contract LendingHelper {
         else if(symbol == getKeccackHash('USDC')) {
             return  1;
         }
-        else if(symbol == getKeccackHash('LINK')) {
-            return 6;
+        else if(symbol == getKeccackHash('USDO')) {
+            return 1;
         }
         return 1;
     }

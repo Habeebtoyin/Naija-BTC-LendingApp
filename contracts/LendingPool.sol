@@ -14,6 +14,8 @@ contract LendingPool is ReentrancyGuard {
     AddressToTokenMap addressToTokenMap;
     LendingConfig lendingConfig;
     LendingHelper lendingHelper;
+    uint256 private constant WITHDRAWALFEE= 2;
+    address private feeWallet;
 
     enum TxMode { BORROW, WITHDRAW}
     event TransferAsset(address lender, address _token, uint _amount);
@@ -82,11 +84,13 @@ contract LendingPool is ReentrancyGuard {
     constructor(
         address _addressToTokenMap, 
         address _lendingConfig, 
-        address _lendingHelper
+        address _lendingHelper,
+        address _feewallet
         ) {
         addressToTokenMap = AddressToTokenMap(_addressToTokenMap);
         lendingConfig = LendingConfig(_lendingConfig);
         lendingHelper = LendingHelper(_lendingHelper);
+        feeWallet = _feewallet;
     }
 
    /************* Lender functions ************************/
@@ -180,7 +184,7 @@ contract LendingPool is ReentrancyGuard {
         require(isLenderTokenOwner(_token), "Not token owner");
 
         uint maxWithdrawQty = lendingHelper.getTokensPerUSDAmount(_token,getUserTotalAvailableBalanceInUSD(lender, TxMode.WITHDRAW)) * 1e18;
-        require(maxWithdrawQty >= _amount,"Cannot withdraw more than balance");
+        require(maxWithdrawQty <= _amount,"Cannot withdraw more than balance");
         // Reserve must have enough withdrawl qty - this must always be true, so not sure why to code it
         require (reserves[_token] >= _amount, "Not enough qty to withdraw");
         reserves[_token] -= _amount;
@@ -199,15 +203,22 @@ contract LendingPool is ReentrancyGuard {
                 laLen -= 1;
             }
         }
+            
+        uint256 withdrawFee = _amount * WITHDRAWALFEE / 100;
+        uint256 netAmount = _amount - withdrawFee;
 
         if(addressToTokenMap.isETH(_token)) {
-            (bool success, ) = payable(lender).call{value: _amount}("");
+            (bool success, ) = payable(lender).call{value: netAmount}("");
             if (!success) {
                 revert("Transfer to Lender wallet not successful");
             }
         }else {
-            SafeERC20.safeTransfer(IERC20(_token), lender, _amount);
+            SafeERC20.safeTransfer(IERC20(_token), lender, netAmount);
         }
+
+        SafeERC20.safeTransfer(IERC20(_token), feeWallet, withdrawFee);
+
+
         emit Withdraw(lender, _token, _amount);
         return true;
     }

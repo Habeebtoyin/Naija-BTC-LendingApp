@@ -5,11 +5,18 @@ const {
   ETHAddress,
   DAITokenAddress,
   USDCTokenAddress,
-  LINKTokenAddress,
+ USDOTokenAddress,
   ETH_USD_PF_ADDRESS,
   DAI_USD_PF_ADDRESS,
   USDC_USD_PF_ADDRESS,
-  LINK_USD_PF_ADDRESS,
+  USDO_USD_PF_ADDRESS,
+  FEEWALLET,
+  account1,
+  account2,
+  account3,
+  account4,
+  account5,
+  account6,
 } = require("../addresses");
 
 // converting number into ETHERS
@@ -34,7 +41,9 @@ describe("LendHub Tests", async () => {
   let lendingHelper;
   let daiToken;
   let usdcToken;
-  let linkToken;
+  let usdoToken;
+  let symbol;
+  let feedAddress;
 
   // constant variables
   const INTEREST_RATE = 3;
@@ -44,19 +53,19 @@ describe("LendHub Tests", async () => {
   const DAI_SYMBOL = "DAI";
   const USDC_SYMBOL = "USDC";
   const ETH_SYMBOL = "ETH";
-  const LINK_SYMBOL = "LINK";
+  const USDO_SYMBOL = "USDO";
 
   // constant address
   const ETH_ADDRESS = ETHAddress;
   let DAI_ADDRESS = DAITokenAddress;
   let USDC_ADDRESS = USDCTokenAddress;
-  let LINK_ADDRESS = LINKTokenAddress;
+  let USDO_ADDRESS = USDOTokenAddress;
 
   // // constant pricefeed address
   // const ETH_USD_PF_ADDRESS = "0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e";
   // const DAI_USD_PF_ADDRESS = "0x0d79df66BE487753B02D015Fb622DED7f0E9798d";
   // const USDC_USD_PF_ADDRESS = "0xAb5c49580294Aff77670F839ea425f5b78ab3Ae7";
-  // const LINK_USD_PF_ADDRESS = "0x48731cF7e84dc94C5f84577882c14Be11a5B7456";
+  // const USDO_USD_PF_ADDRESS = "0x48731cF7e84dc94C5f84577882c14Be11a5B7456";
 
   before(async () => {
     /******** Deploy Contracts *********/
@@ -81,7 +90,8 @@ describe("LendHub Tests", async () => {
     lendingPool = await LendingPool.deploy(
       addressToTokenMap.address,
       lendingConfig.address,
-      lendingHelper.address
+      lendingHelper.address,
+      FEEWALLET
     );
     await lendingPool.deployed();
 
@@ -95,15 +105,15 @@ describe("LendHub Tests", async () => {
     await usdcToken.deployed();
     USDC_ADDRESS = usdcToken.address;
 
-    const LinkToken = await ethers.getContractFactory("LinkToken");
-    linkToken = await LinkToken.deploy();
-    await linkToken.deployed();
-    LINK_ADDRESS = linkToken.address;
+    const USDOToken = await ethers.getContractFactory("USDOToken");
+    usdoToken = await USDOToken.deploy();
+    await usdoToken.deployed();
+   USDO_ADDRESS = usdoToken.address;
 
     console.log("Lending Pool : " + lendingPool.address);
     console.log("DAI_ADDRESS : " + DAI_ADDRESS);
     console.log("USDC_ADDRESS : " + USDC_ADDRESS);
-    console.log("LINK_ADDRESS : " + LINK_ADDRESS);
+    console.log("USDO_ADDRESS : " + USDO_ADDRESS);
 
     /******** Setting Signer Addresses ********/
     const accounts = await ethers.getSigners();
@@ -120,7 +130,7 @@ describe("LendHub Tests", async () => {
     // transfering assets into account
     await daiToken.transfer(lender1.address, numberToEthers(20000));
     await usdcToken.transfer(lender2.address, numberToEthers(50000));
-    await linkToken.transfer(lender3.address, numberToEthers(30000));
+    await usdoToken.transfer(lender3.address, numberToEthers(30000));
 
     /****************** Adding Assets ******************/
     await addressToTokenMap
@@ -134,7 +144,7 @@ describe("LendHub Tests", async () => {
       ._setAddress(USDC_ADDRESS, "USDC");
     await addressToTokenMap
       .connect(deployerAddress)
-      ._setAddress(LINK_ADDRESS, "LINK");
+      ._setAddress(USDO_ADDRESS, "USDO");
 
     /****************** Adding PriceFeed ******************/
     await addressToTokenMap
@@ -145,38 +155,42 @@ describe("LendHub Tests", async () => {
       ._setPriceFeedMap(USDC_ADDRESS, USDC_USD_PF_ADDRESS);
     await addressToTokenMap
       .connect(deployerAddress)
-      ._setPriceFeedMap(LINK_ADDRESS, LINK_USD_PF_ADDRESS);
+      ._setPriceFeedMap(USDO_ADDRESS, USDO_USD_PF_ADDRESS);
     await addressToTokenMap
       .connect(deployerAddress)
       ._setPriceFeedMap(ETH_ADDRESS, ETH_USD_PF_ADDRESS);
   });
 
-  it("1. Should be able to retrieve all token symbols", async () => {
-    let symbol = await addressToTokenMap.getSymbol(ETH_ADDRESS);
+  it("1. Should be able to retrieve ETH  symbols", async () => {
+     symbol = await addressToTokenMap.getSymbol(ETH_ADDRESS);
     expect(symbol).to.equal(ETH_SYMBOL);
-
+  });
+  it("1b. Should be able to retrieve  tokens symbols", async () => {
     symbol = await addressToTokenMap.getSymbol(DAI_ADDRESS);
     expect(symbol).to.equal(DAI_SYMBOL);
-
+  })
+  it("1b. Should be able to retrieve  tokens symbols", async () => {
     symbol = await addressToTokenMap.getSymbol(USDC_ADDRESS);
     expect(symbol).to.equal(USDC_SYMBOL);
-
-    symbol = await addressToTokenMap.getSymbol(LINK_ADDRESS);
-    expect(symbol).to.equal(LINK_SYMBOL);
+  });
+  it("1b. Should be able to retrieve  tokens symbols", async () => {
+    symbol = await addressToTokenMap.getSymbol(USDO_ADDRESS);
+    expect(symbol).to.equal(USDO_SYMBOL);
   });
 
-  it("2. Should be able retrieve all price feed", async () => {
-    let feedAddress = await addressToTokenMap.getPriceFeedMap(ETH_ADDRESS);
+  it("2. Should be able retrieve ETH price feed", async () => {
+     feedAddress = await addressToTokenMap.getPriceFeedMap(ETH_ADDRESS);
     expect(feedAddress).to.be.equal(ETH_USD_PF_ADDRESS);
-
+  })
+  it("2b. Should be able retrieve all price feed", async () => {
     feedAddress = await addressToTokenMap.getPriceFeedMap(DAI_ADDRESS);
     expect(feedAddress).to.be.equal(DAI_USD_PF_ADDRESS);
 
     feedAddress = await addressToTokenMap.getPriceFeedMap(USDC_ADDRESS);
     expect(feedAddress).to.be.equal(USDC_USD_PF_ADDRESS);
 
-    feedAddress = await addressToTokenMap.getPriceFeedMap(LINK_ADDRESS);
-    expect(feedAddress).to.be.equal(LINK_USD_PF_ADDRESS);
+    feedAddress = await addressToTokenMap.getPriceFeedMap(USDO_ADDRESS);
+    expect(feedAddress).to.be.equal(USDO_USD_PF_ADDRESS);
   });
 
   // it("4. Lender 3 can add assets", async () => {
@@ -608,7 +622,7 @@ describe("LendHub Tests", async () => {
     console.log("#####################################################");
 
     const amount = numberToEthers(3000);
-    const asset = LINK_ADDRESS;
+    const asset = USDO_ADDRESS;
 
     console.log("********** BEFORE LEND - LINK **********");
 
@@ -631,7 +645,7 @@ describe("LendHub Tests", async () => {
     console.log("LINK Balance in Reserve : " + beforeReserveAmount / decimals);
 
     /********************** Lending **********************/
-    await linkToken.connect(lender3).approve(lendingPool.address, amount);
+    await usdoToken.connect(lender3).approve(lendingPool.address, amount);
     const tx = await lendingPool.connect(lender3).lend(asset, amount);
     await tx.wait();
 

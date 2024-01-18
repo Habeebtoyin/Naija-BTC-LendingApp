@@ -5,7 +5,7 @@ import {
   ETHAddress,
   DAITokenAddress,
   USDCTokenAddress,
-  LINKTokenAddress,
+  USDOTokenAddress,
 } from "./addresses";
 
 export const token = [
@@ -36,8 +36,8 @@ export const token = [
   },
   {
     image: linkIcon,
-    name: "LINK",
-    address: LINKTokenAddress,
+    name: "USDO",
+    address: USDOTokenAddress,
     decimal: "18",
     apy: 3,
     isCollateral: true,

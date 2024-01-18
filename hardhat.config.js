@@ -24,6 +24,11 @@ module.exports = {
       accounts: [process.env.MAIN_ACCOUNT],
       chainId: 11155111,
     },
+    only: {
+      url: 'https://onlylayer.org',
+      accounts: [process.env.MAIN_ACCOUNT],
+      chainId: 728290,
+    },
 
     // mumbai: {
     //   url: process.env.INFURA_MUMBAI_API_URL,

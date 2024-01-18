@@ -77,11 +77,11 @@ const LendState = (props) => {
 
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const network = await provider.getNetwork();
-      const networkName = network.name;
+      const networkName = network.chainId;
       const signer = provider.getSigner();
 
-      if (networkName != "sepolia") {
-        alert("Please switch your network to Sepolia Testnet");
+      if (networkName != 728290) {
+        alert("Please switch your network to OnlyLayer Testnet");
         return;
       }
 
