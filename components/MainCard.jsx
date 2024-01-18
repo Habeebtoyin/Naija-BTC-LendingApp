@@ -1,5 +1,5 @@
 import React from "react";
-import { ether } from "../assets";
+import { defi_connectlogo } from "../assets";
 import Image from "next/image";
 
 import { BiWallet } from "react-icons/bi";
@@ -10,7 +10,7 @@ const MainCard = () => {
     <div className="px-8 md:px-20 md:py-6 py-10">
       <div className="flex items-center md:pb-4 justify-center">
         <Image
-          src={ether}
+          src={defi_connectlogo}
           alt="Ether icon"
           className="w-8 h-8 md:w-10 md:h-10"
         />
