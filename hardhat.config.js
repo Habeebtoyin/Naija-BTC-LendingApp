@@ -27,7 +27,7 @@ module.exports = {
     only: {
       url: 'https://onlylayer.org',
       accounts: [process.env.MAIN_ACCOUNT],
-      chainId: 728290,
+      chainId: 728696,
     },
 
     // mumbai: {

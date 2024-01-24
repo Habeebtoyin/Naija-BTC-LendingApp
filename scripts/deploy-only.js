@@ -1,11 +1,14 @@
 const { ethers } = require("hardhat");
 const {
   ETHAddress,
+  
   ETH_USD_PF_ADDRESS,
   DAI_USD_PF_ADDRESS,
   USDC_USD_PF_ADDRESS,
-  USDO_USD_PF_ADDRESS,
-  FEEWALLET
+  USDT_USD_PF_ADDRESS,
+  FEEWALLET,
+  
+
 } = require("../addresses");
 
 
@@ -18,25 +21,33 @@ const numberToEthers = (number) => {
     const BORROW_RATE = 4;
   
     /********************** Deploy DAIToken *************************/
-    const DAIToken = await ethers.getContractFactory("DAIToken");
-    const daiToken = await DAIToken.deploy();
-    await daiToken.deployed();
-    const DAI_ADDRESS = daiToken.address;
-    console.log('const DAITokenAddress = "' + DAI_ADDRESS + '"');
+    const DDAIToken = await ethers.getContractFactory("DDAIToken");
+    const ddaiToken = await DDAIToken.deploy();
+    await ddaiToken.deployed();
+    const DDAI_ADDRESS = ddaiToken.address;
+    console.log('const DDAITokenAddress = "' + DDAI_ADDRESS + '"');
   
-    /********************** Deploy USDOToken *************************/
-    const USDOToken = await ethers.getContractFactory("USDOToken");
-    const usdoToken = await USDOToken.deploy();
-    await usdoToken.deployed();
-    const USDO_ADDRESS = usdoToken.address;
-    console.log('const USDOTokenAddress = "' + USDO_ADDRESS + '"');
+    // /********************** Deploy USDOToken *************************/
+    const DUSDTToken = await ethers.getContractFactory("DUSDTToken");
+    const dusdtToken = await DUSDTToken.deploy();
+    await dusdtToken.deployed();
+    const DUSDT_ADDRESS = dusdtToken.address;
+    console.log('const DUSDTTokenAddress = "' + DUSDT_ADDRESS + '"');
   
-    /********************** Deploy USDCToken *************************/
-    const USDCToken = await ethers.getContractFactory("USDCToken");
-    const usdcToken = await USDCToken.deploy();
-    await usdcToken.deployed();
-    const USDC_ADDRESS = usdcToken.address;
-    console.log('const USDCTokenAddress = "' + USDC_ADDRESS + '"');
+    // /********************** Deploy DUSDCToken *************************/
+    const DUSDCToken = await ethers.getContractFactory("DUSDCToken");
+    const dusdcToken = await DUSDCToken.deploy();
+    await dusdcToken.deployed();
+    const DUSDC_ADDRESS = dusdcToken.address;
+    console.log('const DUSDCTokenAddress = "' + DUSDC_ADDRESS + '"');
+
+     // /********************** Deploy DUSDCToken *************************/
+    //  const DBTCToken = await ethers.getContractFactory("DBTCToken");
+    //  const dbtcToken = await DBTCToken.deploy();
+    //  await dbtcToken.deployed();
+    //  const DBTC_ADDRESS = dbtcToken.address;
+    //  console.log('const USDCTokenAddress = "' + DBTC_ADDRESS + '"');
+        
   
     /********************** Deploy AddressToTokenMap *************************/
     const AddressToTokenMap = await ethers.getContractFactory(
@@ -77,16 +88,18 @@ const numberToEthers = (number) => {
   
       /****************** Adding Assets ******************/
   await addressToTokenMap._setAddress(ETHAddress, "ETH");
-  await addressToTokenMap._setAddress(DAI_ADDRESS, "DAI");
-  await addressToTokenMap._setAddress(USDC_ADDRESS, "USDC");
-  await addressToTokenMap._setAddress(USDO_ADDRESS, "USDO");
+  await addressToTokenMap._setAddress(DDAI_ADDRESS, "DDAI");
+  await addressToTokenMap._setAddress(DUSDC_ADDRESS, "DUSDC");
+  await addressToTokenMap._setAddress(DUSDT_ADDRESS, "DUSDT");
+
   console.log("Token Address Set");
 
   /****************** Adding Price Feed ******************/
-  await addressToTokenMap._setPriceFeedMap(DAI_ADDRESS, DAI_USD_PF_ADDRESS);
-  await addressToTokenMap._setPriceFeedMap(USDC_ADDRESS, USDC_USD_PF_ADDRESS);
-  await addressToTokenMap._setPriceFeedMap(USDO_ADDRESS, USDO_USD_PF_ADDRESS);
+  await addressToTokenMap._setPriceFeedMap(DDAI_ADDRESS, DAI_USD_PF_ADDRESS);
+  await addressToTokenMap._setPriceFeedMap(DUSDC_ADDRESS, USDC_USD_PF_ADDRESS);
+  await addressToTokenMap._setPriceFeedMap(DUSDT_ADDRESS, USDT_USD_PF_ADDRESS);
   await addressToTokenMap._setPriceFeedMap(ETHAddress, ETH_USD_PF_ADDRESS);
+
   console.log("Price Feed Address Set");
 
     }

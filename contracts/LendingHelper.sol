@@ -68,18 +68,20 @@ contract LendingHelper {
         // return uint(price) / (10 ** decimal);
         // --------------------------------------------------
         bytes32 symbol = getKeccackHash(addressToTokenMap.getSymbol(_tokenAddress));
+        
         if(symbol == getKeccackHash('ETH')) {
             return 2534;
         }
-        else if(symbol == getKeccackHash('DAI')) {
+        else if(symbol == getKeccackHash('DDAI')) {
             return 1;
         }
-        else if(symbol == getKeccackHash('USDC')) {
+        else if(symbol == getKeccackHash('DUSDC')) {
             return  1;
         }
-        else if(symbol == getKeccackHash('USDO')) {
+        else if(symbol == getKeccackHash('DUSDT')) {
             return 1;
         }
+        
         return 1;
     }
 

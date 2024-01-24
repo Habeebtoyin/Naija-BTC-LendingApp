@@ -80,7 +80,7 @@ const LendState = (props) => {
       const networkName = network.chainId;
       const signer = provider.getSigner();
 
-      if (networkName != 728290) {
+      if (networkName != 728696) {
         alert("Please switch your network to OnlyLayer Testnet");
         return;
       }
