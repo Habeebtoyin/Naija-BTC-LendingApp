@@ -7,15 +7,11 @@ import { BsBarChart } from "react-icons/bs";
 
 const MainCard = () => {
   return (
-    <div className="px-8 md:px-20 md:py-6 py-10">
+    <div className="px-8 md:px-20 md:py-6 py-10 bg-gradient-to-r from-white to-sky-600">
       <div className="flex items-center md:pb-4 justify-center">
-        <Image
-          src={defi_connectlogo}
-          alt="Ether icon"
-          className="w-8 h-8 md:w-10 md:h-10"
-        />
-        <h1 className="pl-2 font-bold text-3xl md:text-4xl">
-          DeFi Lend & Borrow
+        
+        <h1 className="pl-2 font-bold md:text-3xl text-[20px] md:text-4xl text-black">
+          DeFiConnect <span className="text-white">Lend & Borrow</span>
         </h1>
       </div>
       {/* <div className="flex gap-6">

@@ -6,9 +6,9 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <nav className="w-full h-15 text-white flex py-2 px-4 lg:px-10 justify-between items-center border-b-[1px] border-gray-400">
+    <nav className="w-full h-15 bg-gradient-to-r from-white to-sky-600 text-white flex py-2 px-4 lg:px-10 justify-between items-center ">
       <a href="/">
-        <Image src={defi_connectlogo} alt="DefiConnect icon" className="w-40 hover:opacity-80" />
+        <Image src={defi_connectlogo} alt="DefiConnect icon" className="w-[70px] hover:opacity-80" />
       </a>
       <ConnectButton />
     </nav>
