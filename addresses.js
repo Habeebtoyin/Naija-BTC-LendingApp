@@ -41,21 +41,17 @@
 
 
 
-const ETHAddress= ""
-const DDAITokenAddress = ""
-const DUSDTTokenAddress = ""
-const DUSDCTokenAddress = ""
-const AddressToTokenMapAddress = ""
-const LendingConfigAddress = ""
-const LendingHelperAddress = ""
-const LendingPoolAddress = ""
-// const DAITokenAddress = ""
-// const USDCTokenAddress = ""
-// const USDTTokenAddress = ""
-// const AddressToTokenMapAddress = ""
-// const LendingConfigAddress = ""
-// const LendingHelperAddress = ""
-// const LendingPoolAddress = ""
+const ETHAddress = "0xBd5C4aFED93045AF208b01095Dd9E683425CB212"
+const DDAITokenAddress = "0x05b94e1D09BF9B2A9932DF7d3916c92E6f438C43"
+const DUSDTTokenAddress = "0x39856a5DF97f9196386c63a2E9857f54f655Aa6A"
+const DUSDCTokenAddress = "0xb5c479E4CFbAB0D3fB8b5a9641Dfe54364498c5C"
+const AddressToTokenMapAddress = "0x92386EC8db06315100039bF0646c163C831cb1DA"
+const LendingConfigAddress = "0xa1D0DFc9f7422f52A7B7c650B403cbBBf41Fa2A6"
+const LendingHelperAddress = "0x2A3105f3f0E6f8563683f5FCE0Ae79caD341AFC9"
+const LendingPoolAddress = "0x5C87Af2Cfa2F2bd4B7C97c046F6b1edF4ECA71b9"
+
+
+
 
 
 // const AddressToTokenMapAddress = "0xD06a23777d0311bcD812409e0283CD43C21Bf4c6"

@@ -1,13 +1,13 @@
 const { ethers } = require("hardhat");
 const {
-  ETHAddress,
-  
+
   ETH_USD_PF_ADDRESS,
   DAI_USD_PF_ADDRESS,
   USDC_USD_PF_ADDRESS,
   USDT_USD_PF_ADDRESS,
   FEEWALLET,
-  
+  ETHAddress,
+ 
 
 } = require("../addresses");
 
@@ -20,7 +20,14 @@ const numberToEthers = (number) => {
     const INTEREST_RATE = 3;
     const BORROW_RATE = 4;
   
-    /********************** Deploy DAIToken *************************/
+
+    //   /********************** Deploy wETH *************************/
+    //   const WETH = await ethers.getContractFactory("WETH9");
+    //   const weth = await WETH.deploy();
+    //   await weth.deployed();
+    //   const ETHAddress = weth.address;
+    //   console.log('const ETHAddress = "' + ETHAddress + '"');
+    // /********************** Deploy DAIToken *************************/
     const DDAIToken = await ethers.getContractFactory("DDAIToken");
     const ddaiToken = await DDAIToken.deploy();
     await ddaiToken.deployed();
@@ -41,13 +48,13 @@ const numberToEthers = (number) => {
     const DUSDC_ADDRESS = dusdcToken.address;
     console.log('const DUSDCTokenAddress = "' + DUSDC_ADDRESS + '"');
 
-     // /********************** Deploy DUSDCToken *************************/
+    //  /********************** Deploy DUSDCToken *************************/
     //  const DBTCToken = await ethers.getContractFactory("DBTCToken");
     //  const dbtcToken = await DBTCToken.deploy();
     //  await dbtcToken.deployed();
     //  const DBTC_ADDRESS = dbtcToken.address;
     //  console.log('const USDCTokenAddress = "' + DBTC_ADDRESS + '"');
-        
+    
   
     /********************** Deploy AddressToTokenMap *************************/
     const AddressToTokenMap = await ethers.getContractFactory(
