@@ -41,14 +41,14 @@
 
 
 
-const ETHAddress= "0xd9d6507119Ec56ce22A89bEdAcd6B44D495BFf08"
-const DDAITokenAddress = "0xC96E6B4B0c3e815d70c4239f8cA0b1cF6DE698C9"
-const DUSDTTokenAddress = "0x084AA3F1d51C4cda79BaF91828E43D37B1a3F8E6"
-const DUSDCTokenAddress = "0x82628bA866c5a27Fa8c29120485cb80Bf04A43DD"
-const AddressToTokenMapAddress = "0x69594650D7B57b903296042559d41f86a6D9ffA9"
-const LendingConfigAddress = "0x311FFD6Cc608a9b465e6C3cd8AD20ed0E082065a"
-const LendingHelperAddress = "0x385838a05A7456835c660E935C1cC9fB4Fc44C2d"
-const LendingPoolAddress = "0xA081a097B5B7910B6598ADdF54D72bce727cc66a"
+const ETHAddress= ""
+const DDAITokenAddress = ""
+const DUSDTTokenAddress = ""
+const DUSDCTokenAddress = ""
+const AddressToTokenMapAddress = ""
+const LendingConfigAddress = ""
+const LendingHelperAddress = ""
+const LendingPoolAddress = ""
 // const DAITokenAddress = ""
 // const USDCTokenAddress = ""
 // const USDTTokenAddress = ""
