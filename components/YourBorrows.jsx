@@ -5,7 +5,7 @@ import { LoaderSkeleton, YourBorrowsRow, SummaryTab } from "../components";
 const YourBorrows = () => {
   const { yourBorrows, borrowSummary } = useContext(lendContext);
   return (
-    <div className="w-full md:w-1/2 h-30 bg-white rounded-md ">
+    <div className="w-full md:w-1/2 h-30 bg-white rounded-md mt-20">
       <h1 className="px-6 py-5 font-semibold text-md">Your Borrows</h1>
 
       {yourBorrows.length > 0 ? (

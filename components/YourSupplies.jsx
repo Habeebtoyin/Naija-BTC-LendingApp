@@ -6,7 +6,7 @@ import lendContext from "../context/lendContext";
 const YourSupplies = () => {
   const { supplySummary, supplyAssets } = useContext(lendContext);
   return (
-    <div className="w-full md:w-1/2 h-30 bg-white rounded-md ">
+    <div className="w-full md:w-1/2 h-30 bg-white rounded-md mt-20 ">
       <h1 className="px-6 py-5 font-semibold text-md">Your supplies</h1>
 
       {supplyAssets.length > 0 ? (
