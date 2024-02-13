@@ -72,7 +72,7 @@ const ModalWithdraw = ({
     } else {
       const pattern = /'([^']*)'/;
       const error = transaction.message.match(pattern);
-      toast.error(`${error[1]}`);
+      // toast.error(`${error[1]}`);
       console.log("ERROR: " + transaction.message);
       setIsWithdrawing(false);
     }

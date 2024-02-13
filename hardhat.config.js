@@ -19,11 +19,11 @@ module.exports = {
       allowUnlimitedContractSize: true,
     },
 
-    sepolia: {
-      url: process.env.INFURA_SEPOLIA_API_URL,
-      accounts: [process.env.MAIN_ACCOUNT],
-      chainId: 11155111,
-    },
+    // sepolia: {
+    //   url: process.env.INFURA_SEPOLIA_API_URL,
+    //   accounts: [process.env.MAIN_ACCOUNT],
+    //   chainId: 11155111,
+    // },
     only: {
       url: 'https://onlylayer.org',
       accounts: [process.env.MAIN_ACCOUNT],

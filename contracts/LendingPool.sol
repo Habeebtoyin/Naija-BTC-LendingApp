@@ -184,7 +184,7 @@ contract LendingPool is ReentrancyGuard {
         require(isLenderTokenOwner(_token), "Not token owner");
 
         uint maxWithdrawQty = lendingHelper.getTokensPerUSDAmount(_token,getUserTotalAvailableBalanceInUSD(lender, TxMode.WITHDRAW)) * 1e18;
-        require(maxWithdrawQty <= _amount,"Cannot withdraw more than balance");
+        require(maxWithdrawQty >= _amount,"Cannot withdraw more than balance");
         // Reserve must have enough withdrawl qty - this must always be true, so not sure why to code it
         require (reserves[_token] >= _amount, "Not enough qty to withdraw");
         reserves[_token] -= _amount;
@@ -212,8 +212,11 @@ contract LendingPool is ReentrancyGuard {
             if (!success) {
                 revert("Transfer to Lender wallet not successful");
             }
-        }else {
+        }else if(!addressToTokenMap.isETH(_token)){
+
             SafeERC20.safeTransfer(IERC20(_token), lender, netAmount);
+        }else {
+            revert("Failed to Transfer the Token");
         }
 
         SafeERC20.safeTransfer(IERC20(_token), feeWallet, withdrawFee);

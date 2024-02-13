@@ -1,7 +1,0 @@
-const DAITokenAddress = "0xd9d6507119Ec56ce22A89bEdAcd6B44D495BFf08"     
-const LINKTokenAddress = "0x21D5E15aD4C86Ca7239380CFB8D53bFe6BD79aEe"    
-const USDCTokenAddress = "0xCD1FfF5FcDE62bEFDc1a7E3Ddf6E166fA24f7B98"    
-const AddressToTokenMapAddress = "0x9Af36aD30ecAc6ce8B6D1F3d6C42711c48Ab627f"
-const LendingConfigAddress = "0x63101C389e9a005a1f3b9EB036B73a95FC23fAEf"
-const LendingHelperAddress = "0x42F16c5E448114CB9a93D47b81349CdAE13ED768"
-const LendingPoolAddress = "0x44D882b4954C747E62067cf3A1C18cd9e98E58FB"

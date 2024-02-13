@@ -42,13 +42,21 @@
 
 
 const ETHAddress = "0xBd5C4aFED93045AF208b01095Dd9E683425CB212"
-const DDAITokenAddress = "0x05b94e1D09BF9B2A9932DF7d3916c92E6f438C43"
-const DUSDTTokenAddress = "0x39856a5DF97f9196386c63a2E9857f54f655Aa6A"
-const DUSDCTokenAddress = "0xb5c479E4CFbAB0D3fB8b5a9641Dfe54364498c5C"
-const AddressToTokenMapAddress = "0x92386EC8db06315100039bF0646c163C831cb1DA"
-const LendingConfigAddress = "0xa1D0DFc9f7422f52A7B7c650B403cbBBf41Fa2A6"
-const LendingHelperAddress = "0x2A3105f3f0E6f8563683f5FCE0Ae79caD341AFC9"
-const LendingPoolAddress = "0x5C87Af2Cfa2F2bd4B7C97c046F6b1edF4ECA71b9"
+// const DDAITokenAddress = "0x05b94e1D09BF9B2A9932DF7d3916c92E6f438C43"
+// const DUSDTTokenAddress = "0x39856a5DF97f9196386c63a2E9857f54f655Aa6A"
+// const DUSDCTokenAddress = "0xb5c479E4CFbAB0D3fB8b5a9641Dfe54364498c5C"
+// const AddressToTokenMapAddress = "0x92386EC8db06315100039bF0646c163C831cb1DA"
+// const LendingConfigAddress = "0xa1D0DFc9f7422f52A7B7c650B403cbBBf41Fa2A6"
+// const LendingHelperAddress = "0x2A3105f3f0E6f8563683f5FCE0Ae79caD341AFC9"
+// const LendingPoolAddress = "0x5C87Af2Cfa2F2bd4B7C97c046F6b1edF4ECA71b9"
+
+const DDAITokenAddress = "0x147f834B1560d6346C628B68b601843f84880d0b"
+const DUSDTTokenAddress = "0xDC6C0451Dffa4dF98431318F7f69D908FE7D7732"
+const DUSDCTokenAddress = "0x3adaAF6c24a53E43eb908ee2018e6D44a6fd21c6"
+const AddressToTokenMapAddress = "0x958D078CBbA1EEe077EB349FA8aad595a3f7Fa43"
+const LendingConfigAddress = "0x4eC2CcCd89FD2Ec22a823e09Bfe5a21507322402"
+const LendingHelperAddress = "0xF4A2c01A205E5ADc52be664fF261d1155920Ba43"
+const LendingPoolAddress = "0xD6B02741B883253ebf44730309d0F9F337EC964e"
 
 
 
@@ -70,15 +78,15 @@ const USDT_USD_PF_ADDRESS = "0xc59E3633BAAC79493d908e63626716e204A45EdF";
 // const WBTC_USD_PF_ADDRESS = "0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43"
 
 
-// shubham wallet addresses
-const account1 = "0x4644933680922aE17748753ae20264436ca616cc";
-const account2 = "0x021edEFA528293eB8ad9A2d9e0d71011f6297601";
-const account3 = "0xc1f33e8c427fd4126A23A4a9B721BD97Fb11dDe6";
+// // shubham wallet addresses
+// const account1 = "0x4644933680922aE17748753ae20264436ca616cc";
+// const account2 = "0x021edEFA528293eB8ad9A2d9e0d71011f6297601";
+// const account3 = "0xc1f33e8c427fd4126A23A4a9B721BD97Fb11dDe6";
 
-// sasi wallet addresses
-const account4 = "0x315F60449DaB3D321aF75821b576E7F436308635";
-const account5 = "0x4B40f99E93A8814be7fDe5F6AaFA5e9823E13728";
-const account6 = "0x3f39Ae58Cb1148ec1Ad903648319359Cfdc34a02";
+// // sasi wallet addresses
+// const account4 = "0x315F60449DaB3D321aF75821b576E7F436308635";
+// const account5 = "0x4B40f99E93A8814be7fDe5F6AaFA5e9823E13728";
+// const account6 = "0x3f39Ae58Cb1148ec1Ad903648319359Cfdc34a02";
 
 module.exports = {
   ETHAddress,
@@ -94,10 +102,5 @@ module.exports = {
   USDC_USD_PF_ADDRESS,
   USDT_USD_PF_ADDRESS,
   FEEWALLET,
-  account1,
-  account2,
-  account3,
-  account4,
-  account5,
-  account6,
+
 };

@@ -10,14 +10,14 @@ import {
 } from "./addresses";
 
 export const token = [
-  {
-    image: ethIcon,
-    name: "ETH",
-    address: ETHAddress,
-    decimal: "18",
-    apy: 3,
-    isCollateral: true,
-  },
+  // {
+  //   image: ethIcon,
+  //   name: "ETH",
+  //   address: ETHAddress,
+  //   decimal: "18",
+  //   apy: 3,
+  //   isCollateral: true,
+  // },
 
   {
     image: daiIcon,
