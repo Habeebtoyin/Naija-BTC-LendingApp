@@ -18,7 +18,7 @@ const YourSuppliesRow = ({
   return (
     <>
       <tr key={name}>
-        <td className="md:px-4 border-b-[1px] border-blueGrey-100 m:whitespace-nowrap md:p-4 p-2">
+        <td className="md:px-4 border-b-[1px]  border-[#0A0D26]-100 m:whitespace-nowrap md:p-4 p-2">
           <div className="flex items-center">
             <Image
               src={image}
