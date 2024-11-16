@@ -6,11 +6,11 @@ import { FiAlertCircle } from "react-icons/fi";
 const AssetsToBorrow = () => {
   const { assetsToBorrow } = useContext(lendContext);
   return (
-    <div className="w-full md:w-1/2 h-30 bg-white rounded-md ">
+    <div className="w-full md:w-1/2 h-30 bg-white rounded-md shadow-md shadow-[#652400]">
       <h1 className="px-6 py-5 font-semibold text-md text-[#0A0D26]">Assets to Borrow</h1>
 
       {assetsToBorrow.length > 0 ? (
-        <div className="pt-2 md:pt-3">
+        <div className="pt-2 md:pt-3 overflow-auto">
           <table className="item-center w-full border-collapse bg-transparent">
             <thead>
               <tr>

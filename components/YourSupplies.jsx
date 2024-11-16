@@ -6,7 +6,7 @@ import lendContext from "../context/lendContext";
 const YourSupplies = () => {
   const { supplySummary, supplyAssets } = useContext(lendContext);
   return (
-    <div className="w-full md:w-1/2 h-30 bg-white rounded-md mt-20 ">
+    <div className="w-full md:w-1/2 h-30 bg-white rounded-md mt-20 shadow-md shadow-[#652400] ">
       <h1 className="px-6 py-5 font-semibold text-md text-[#0A0D26]">Your supplies</h1>
 
       {supplyAssets.length > 0 ? (
@@ -19,7 +19,7 @@ const YourSupplies = () => {
             text3={"Collateral"}
             value3={supplySummary.totalUSDCollateral}
           />
-          <div className="pt-3">
+          <div className="pt-3 overflow-auto">
             <table className="item-center w-full border-col bg-transparent">
               <thead>
                 <tr>

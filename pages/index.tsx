@@ -47,7 +47,7 @@ const Home: NextPage = () => {
             <MainCard />
           </div>
 
-          {!metamaskDetails.currentAccount ? (
+          {metamaskDetails.currentAccount ? (
             <DisconnectedTab />
           ) : (
             <LendingPool />

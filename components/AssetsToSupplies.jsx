@@ -6,11 +6,11 @@ import { LoaderSkeleton, AssetsToSuppliesRow } from ".";
 const AssetsToSupplies = () => {
   const { userAssets } = useContext(lendContext);
   return (
-    <div className="w-full md:w-1/2 h-30 bg-white rounded-md ">
+    <div className="w-full md:w-1/2 h-30 bg-white rounded-md shadow-md shadow-[#652400]">
       <h1 className="px-6 py-5 font-semibold text-md text-[#0A0D26]">Assets to supply</h1>
 
-      <div className="pt-2 md:pt-3">
-        <table className="item-center w-full border-collapse bg-transparent">
+      <div className="pt-2 md:pt-3 overflow-auto">
+        <table className="item-center min-w-full border-collapse bg-transparent ">
           <thead>
             <tr>
               <th className="font-medium text-[11px] md:text-xs px-3 text-[#62677B] text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
