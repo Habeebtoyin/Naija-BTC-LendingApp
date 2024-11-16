@@ -9,13 +9,13 @@ const ConnectButton = () => {
     <div>
       {!metamaskDetails.currentAccount ? (
         <button
-          className="border-spacing-2 bg-slate-200 hover:bg-black hover:text-white p-3 rounded-full text-black text-sm font-semibold outline-none rounded-full"
+          className=" button_bg rounded-full bg-transparent py-3 px-6 sm:px-8"
           onClick={() => connectWallet()}
         >
           Connect wallet
         </button>
       ) : (
-        <button className="border-spacing-2 bg-slate-200 hover:bg-black p-3 rounded-[full] text-black text-sm font-semibold outline-none hover:text-white rounded-2xl flex">
+        <button className="button_border rounded-full px-6 sm:px-8 lg:px-12">
           <p className="uppercase">{metamaskDetails.networkName} - </p>
           {` ${metamaskDetails.currentAccount
             .toString()

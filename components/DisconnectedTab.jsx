@@ -5,13 +5,13 @@ import { metamask } from "../assets";
 
 const DisconnectedTab = () => {
   return (
-    <div className="px-2 md:px-16 -mt-10 bg-gradient-to-r from-white to-sky-600 w-full">
+    <div className="px-2 md:px-16 -mt-10 w-full">
       <div className=" md:flex  md:justify-around p-5 my-4 items-center">
-        <div className="md:text-[45px] text-[24px] text-sky-800 text-center mx-10 font-bold my-5 max-w-[500px]"> Crypto Lending made easy, borrow with easy with DefiConnect</div>
-         <Image src={metamask} alt="Only-layer" className="md:w-[520px] md:h-[245px] h-[150px] w-[300px] shadow-md opacity-90 mx-4 rounded-md" /> 
+        <div className="md:text-[45px] text-[24px] text-center mx-10 font-bold my-5 max-w-[500px] "> Crypto Lending made easy, borrow with easy with <span className="text-[#854CFF]">DefiConnect</span></div>
+         {/* <Image src={metamask} alt="Only-layer" className="md:w-[520px] md:h-[245px] h-[150px] w-[300px] shadow-md opacity-90 mx-4 rounded-md" />  */}
       </div>
       <div className="flex items-center ml-10 p-4">
-        <div className="mr-5 text-white bg-black rounded-full p-3 hover:bg-gray-800 cursor-pointer"> Get started</div>
+        <div className="mr-5 button_border rounded-full p-3 hover:bg-gray-900 cursor-pointer px-6"> Get started</div>
       <ConnectButton />
       </div>
 

@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import lendContext from "../context/lendContext";
 import { Header, MainCard, LendingPool, DisconnectedTab } from "../components";
 
+
 const Home: NextPage = () => {
   const {
     connectWallet,
@@ -38,10 +39,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/lendhub-favi.png" />
       </Head>
 
-      <main className="w-full p-0 m-0">
-        <div>
+      <main className="w-full p-0 m-0 min-h-screen bg-[#060A1A] ">
+        <div className=" ">
           <div>{}</div>
-          <div className="App bg-gradient-to-b from-[#212430] to-[#17171a] h-[12rem] text-white">
+          <div className="App h-[12rem] text-white">
             <Header />
             <MainCard />
           </div>
