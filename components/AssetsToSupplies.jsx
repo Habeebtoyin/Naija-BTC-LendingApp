@@ -7,7 +7,7 @@ const AssetsToSupplies = () => {
   const { userAssets } = useContext(lendContext);
   return (
     <div className="w-full md:w-1/2 h-30 bg-white rounded-md ">
-      <h1 className="px-6 py-5 font-semibold text-md">Assets to supply</h1>
+      <h1 className="px-6 py-5 font-semibold text-md text-[#0A0D26]">Assets to supply</h1>
 
       <div className="pt-2 md:pt-3">
         <table className="item-center w-full border-collapse bg-transparent">

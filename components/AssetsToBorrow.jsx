@@ -7,7 +7,7 @@ const AssetsToBorrow = () => {
   const { assetsToBorrow } = useContext(lendContext);
   return (
     <div className="w-full md:w-1/2 h-30 bg-white rounded-md ">
-      <h1 className="px-6 py-5 font-semibold text-md">Assets to Borrow</h1>
+      <h1 className="px-6 py-5 font-semibold text-md text-[#0A0D26]">Assets to Borrow</h1>
 
       {assetsToBorrow.length > 0 ? (
         <div className="pt-2 md:pt-3">
@@ -52,7 +52,7 @@ const AssetsToBorrow = () => {
         <div className="mx-5 flex justify-start items-center pl-3 p-1 text-xs bg-[#E5EFFB] rounded mb-5">
           <FiAlertCircle className="text-2xl pr-2 text-[#0062D2]" />
           <div className="flex flex-col">
-            <p className="text-[12px] tracking-[0.005rem] p-1">
+            <p className="text-[12px] tracking-[0.005rem] p-1 text-[#0A0D26]">
               You must supply ETH or Tokens as collateral to Borrow
             </p>
           </div>
