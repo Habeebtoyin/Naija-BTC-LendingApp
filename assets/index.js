@@ -9,3 +9,6 @@ export { default as btcIcon} from "./Bitcoin.svg";
 export { default as ether } from "./home-ether.svg";
 export { default as defi_connectlogo} from "./deficonnectcredit.png";
 export { default as metamask } from "./metamask.png";
+export { default as money } from "./money.png";
+
+
