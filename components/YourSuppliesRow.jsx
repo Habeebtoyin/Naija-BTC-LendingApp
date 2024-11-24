@@ -17,7 +17,7 @@ const YourSuppliesRow = ({
 
   return (
     <>
-      <tr key={name}>
+      <tr key={name} className="text-white">
         <td className="md:px-4 border-b-[1px]  border-[#0A0D26]-100 m:whitespace-nowrap md:p-4 p-2">
           <div className="flex items-center">
             <Image
@@ -31,13 +31,13 @@ const YourSuppliesRow = ({
           </div>
         </td>
         <td className="md:px-4 border-b-[1px] border-blueGrey-100 m:whitespace-nowrap md:p-4">
-          <p className="text-center md:text-[13px] text-[12px] text-gray-600 font-semibold">
+          <p className="text-center md:text-[13px] text-[12px] font-semibold">
             {Number(balance).toFixed(2).toString(2).length < 10
               ? Number(balance).toFixed(2).toString().slice(0, 10)
               : `${Number(balance).toFixed(2).toString().slice(0, 10)}...`}
           </p>
 
-          <p className="text-center md:text-[11px] text-[9px] text-gray-600 font-medium">
+          <p className="text-center md:text-[11px] text-[9px] font-medium">
             {" "}
             $
             {Number(balanceInUSD).toFixed(2).toString(2).length < 10
@@ -46,7 +46,7 @@ const YourSuppliesRow = ({
           </p>
         </td>
         <td className="md:px-4 border-b-[1px] border-blueGrey-100 m:whitespace-nowrap md:p-4">
-          <p className="text-center md:text-[13px] text-[12px] text-gray-600 font-semibold">
+          <p className="text-center md:text-[13px] text-[12px] font-semibold">
             {apy} %
           </p>
         </td>

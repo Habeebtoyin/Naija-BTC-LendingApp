@@ -6,8 +6,8 @@ import lendContext from "../context/lendContext";
 const YourSupplies = () => {
   const { supplySummary, supplyAssets } = useContext(lendContext);
   return (
-    <div className="w-full md:w-1/2 h-30 bg-white rounded-md mt-20 shadow-md shadow-[#652400] ">
-      <h1 className="px-6 py-5 font-semibold text-md text-[#0A0D26]">Your supplies</h1>
+    <div className="w-full md:w-1/2 h-30 bg-[#0A0D26] rounded-md mt-20 shadow-md shadow-[#652400] ">
+      <h1 className="px-6 py-5 font-semibold text-md text-white">Your supplies</h1>
 
       {supplyAssets.length > 0 ? (
         <div>
@@ -22,20 +22,20 @@ const YourSupplies = () => {
           <div className="pt-3 overflow-auto">
             <table className="item-center w-full border-col bg-transparent">
               <thead>
-                <tr>
-                  <th className="font-medium text-[11px] md:text-xs  px-3 text-[#62677B] text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 ">
+                <tr className="text-white">
+                  <th className="font-medium text-[11px] md:text-xs  px-3 text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 ">
                     Asset
                   </th>
-                  <th className="font-medium text-[11px] md:text-xs  px-3 text-[#62677B] text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 ">
+                  <th className="font-medium text-[11px] md:text-xs  px-3 text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 ">
                     Balance
                   </th>
-                  <th className="font-medium text-[11px] md:text-xs  px-3 text-[#62677B] text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 ">
+                  <th className="font-medium text-[11px] md:text-xs  px-3 text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 ">
                     APY
                   </th>
-                  <th className="font-medium text-[11px] md:text-xs  px-3 text-[#62677B] text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 ">
+                  <th className="font-medium text-[11px] md:text-xs  px-3 text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 ">
                     Collateral
                   </th>
-                  <th className="font-medium text-[11px] md:text-xs  px-3 text-[#62677B] text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 "></th>
+                  <th className="font-medium text-[11px] md:text-xs  px-3 text-center align-middle whitespace-nowrap p-[6px] border-b-[1px] border-blueGrey-100 "></th>
                 </tr>
               </thead>
 

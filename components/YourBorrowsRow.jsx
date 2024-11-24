@@ -27,13 +27,13 @@ const YourBorrowsRow = ({
           </div>
         </td>
         <td className="md:px-4 align-middle border-b-[1px] border-blueGrey-100  md:whitespace-nowrap md:p-4 ">
-          <p className="text-center md:text-[13px] text-[12px] text-gray-600 font-semibold">
+          <p className="text-center md:text-[13px] text-[12px] text-white font-semibold">
             {Number(borrowQty).toFixed(2).toString(2).length < 10
               ? Number(borrowQty).toFixed(2).toString().slice(0, 10)
               : `${Number(borrowQty).toFixed(2).toString().slice(0, 10)}...`}
           </p>
 
-          <p className="text-center md:text-[11px] text-[9px] text-gray-600 font-medium">
+          <p className="text-center md:text-[11px] text-[9px] text-white font-medium">
             {" "}
             $
             {Number(borrowedBalInUSD).toFixed(2).toString(2).length < 10
@@ -45,7 +45,7 @@ const YourBorrowsRow = ({
           </p>
         </td>
         <td className="md:px-4 align-middle border-b-[1px] border-blueGrey-100 md:whitespace-nowrap md:p-4">
-          <p className="text-center md:text-[12px] text-[11px] text-gray-600 font-semibold">
+          <p className="text-center md:text-[12px] text-[11px] text-white font-semibold">
             {borrowApy} %
           </p>
         </td>

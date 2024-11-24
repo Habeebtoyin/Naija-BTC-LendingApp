@@ -5,8 +5,8 @@ import { LoaderSkeleton, YourBorrowsRow, SummaryTab } from "../components";
 const YourBorrows = () => {
   const { yourBorrows, borrowSummary } = useContext(lendContext);
   return (
-    <div className="w-full md:w-1/2 h-30 bg-white rounded-md mt-20 shadow-md shadow-[#652400] ">
-      <h1 className="px-6 py-5 font-semibold text-md text-[#0A0D26]">Your Borrows</h1>
+    <div className="w-full md:w-1/2 h-30 bg-[#0A0D26] rounded-md mt-20 shadow-md shadow-[#652400] ">
+      <h1 className="px-6 py-5 font-semibold text-md text-white">Your Borrows</h1>
 
       {yourBorrows.length > 0 ? (
         <div>
@@ -22,19 +22,19 @@ const YourBorrows = () => {
             <table className="item-center w-full border-collapse bg-transparent">
               <thead>
                 <tr>
-                  <th className="font-medium text-[11px] md:text-xs px-3 text-[#62677B] text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
+                  <th className="font-medium text-[11px] md:text-xs px-3 text-white text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
                     Asset
                   </th>
-                  <th className="font-medium text-[11px] md:text-xs px-3 text-[#62677B] text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
+                  <th className="font-medium text-[11px] md:text-xs px-3 text-white text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
                     Debt
                   </th>
-                  <th className="font-medium text-[11px] md:text-xs px-3 text-[#62677B] text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
+                  <th className="font-medium text-[11px] md:text-xs px-3 text-white text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
                     APY
                   </th>
-                  <th className="font-medium text-[11px] md:text-xs px-3 text-[#62677B] text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
+                  <th className="font-medium text-[11px] md:text-xs px-3 text-white text-center align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]">
                     APY Type
                   </th>
-                  <th className="font-medium text-[11px] md:text-xs px-3 text-[#62677B] text-left align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]"></th>
+                  <th className="font-medium text-[11px] md:text-xs px-3 text-white text-left align-middle border-b-[1px] border-blueGrey-100 whitespace-nowrap p-[6px]"></th>
                 </tr>
               </thead>
 
