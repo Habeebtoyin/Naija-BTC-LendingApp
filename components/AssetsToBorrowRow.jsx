@@ -22,8 +22,8 @@ const AssetsToBorrowRow = ({ address, name, image, borrowQty, borrowApy }) => {
         <td
           className={
             parseInt(Number(borrowQty)) != 0
-              ? "md:px-4 align-middle border-b-[1px] border-blueGrey-100 text-gray-600  md:whitespace-nowrap md:p-4"
-              : "md:px-4 align-middle border-b-[1px] border-blueGrey-100  text-gray-300 md:whitespace-nowrap md:p-4"
+              ? "md:px-4 align-middle border-b-[1px] border-blueGrey-100 text-white  md:whitespace-nowrap md:p-4"
+              : "md:px-4 align-middle border-b-[1px] border-blueGrey-100  text-white md:whitespace-nowrap md:p-4"
           }
         >
           <p className="text-center md:text-[13px] text-[12px]  font-semibold">
@@ -33,7 +33,7 @@ const AssetsToBorrowRow = ({ address, name, image, borrowQty, borrowApy }) => {
           </p>
         </td>
         <td className="md:px-4 align-middle border-b-[1px] border-blueGrey-100 md:whitespace-nowrap md:p-4">
-          <p className="text-center md:text-[12px] text-[11px] text-gray-600 font-semibold">
+          <p className="text-center md:text-[12px] text-[11px] text-white font-semibold">
             {borrowApy} %
           </p>
         </td>
