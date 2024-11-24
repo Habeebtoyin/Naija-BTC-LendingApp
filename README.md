@@ -1,5 +1,5 @@
+### Creator Network
 
-Creator Network
 Network Name: Creator Testnet
 
 RPC Endpoint: https://rpc.creatorchain.io
