@@ -16,7 +16,7 @@ const ConnectButton = () => {
         </button>
       ) : (
         <button className="button_border rounded-full px-6 sm:px-8 lg:px-12">
-          <p className="uppercase">{metamaskDetails.networkName} - </p>
+          <p className="uppercase">{metamaskDetails.nameOfNetwork} - </p>
           {` ${metamaskDetails.currentAccount
             .toString()
             .substring(0, 4)}...${metamaskDetails.currentAccount

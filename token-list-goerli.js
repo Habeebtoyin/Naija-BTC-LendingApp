@@ -6,22 +6,23 @@ import {
   DDAITokenAddress,
   DUSDTTokenAddress,
   DUSDCTokenAddress,
+  // DWBTCTokenAddress
 
 } from "./addresses";
 
 export const token = [
-  // {
-  //   image: ethIcon,
-  //   name: "ETH",
-  //   address: ETHAddress,
-  //   decimal: "18",
-  //   apy: 3,
-  //   isCollateral: true,
-  // },
+  {
+    image: ethIcon,
+    name: "ETH",
+    address: ETHAddress,
+    decimal: "18",
+    apy: 3,
+    isCollateral: true,
+  },
 
   {
     image: daiIcon,
-    name: "DDAI",
+    name: "DAI",
     address: DDAITokenAddress,
     decimal: "18",
     apy: 3,
@@ -29,7 +30,7 @@ export const token = [
   },
   {
     image: usdcIcon,
-    name: "DUSDC",
+    name: "USDC",
     address: DUSDCTokenAddress,
     decimal: "18",
     apy: 3,
@@ -37,11 +38,19 @@ export const token = [
   },
   {
     image: usdtIcon,
-    name: "DUSDT",
+    name: "USDT",
     address: DUSDTTokenAddress,
     decimal: "18",
     apy: 3,
     isCollateral: true,
   },
+  // {
+  //   image: btcIcon,
+  //   name: "WBTC",
+  //   address: DWBTCTokenAddress,
+  //   decimal: "18",
+  //   apy: 3,
+  //   isCollateral: true,
+  // },
   
 ];

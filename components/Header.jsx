@@ -11,7 +11,7 @@ const Header = () => {
       <a href="/" className="focus:border-none">
         <Image src={defi_connectlogo} alt="DefiConnect icon" className="w-[50px] hover:opacity-80" />
       </a>
-      <a className="text-[20px] text-white mx-6 font-semibold " href="" target="_blank"> <span className="text-[#854CFF]">DefiConnect</span> Stake </a>
+      <a className="text-[20px] text-white mx-6 font-semibold " href="" target="_blank"> <span className="text-[#854CFF]">DefiConnect</span></a>
      </div>
       <ConnectButton />
     </nav>

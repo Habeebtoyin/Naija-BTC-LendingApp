@@ -33,6 +33,7 @@ const LendState = (props) => {
     networkName: null,
     signer: null,
     currentAccount: null,
+    nameOfNetwork: null,
   });
 
   const [userAssets, setUserAssets] = useState([]);
@@ -78,10 +79,18 @@ const LendState = (props) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const network = await provider.getNetwork();
       const networkName = network.chainId;
+      let nameOfNetwork;
+      if(networkName == 728696 ) {
+        nameOfNetwork = "ONLY";
+      }else if(networkName == 66665) {
+        nameOfNetwork = "CETH";
+      } else {
+        console.log("no network name");
+      }
       const signer = provider.getSigner();
 
-      if (networkName != 728696) {
-        alert("Please switch your network to OnlyLayer Testnet");
+      if (networkName != 728696 && networkName !=66665) {
+        alert("Please switch your network to Creator or OnlyLayer");
         return;
       }
 
@@ -92,6 +101,7 @@ const LendState = (props) => {
           networkName: networkName,
           signer: signer,
           currentAccount: currentAddress,
+          nameOfNetwork: nameOfNetwork
         });
         console.log("Connected to wallet....");
       } else {
@@ -638,7 +648,8 @@ const LendState = (props) => {
         yourBorrows,
         repayAsset,
         borrowSummary,
-        updateInterests,
+        updateInterests
+      
       }}
     >
       {props.children}
