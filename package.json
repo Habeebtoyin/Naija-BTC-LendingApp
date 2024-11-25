@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
     "deploy:token": "npx hardhat run scripts/TokenDeploy.js --network only",
     "deploy": "npx hardhat run scripts/deploy-only.js --network only"

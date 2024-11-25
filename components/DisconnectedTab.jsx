@@ -4,13 +4,14 @@ import Image from "next/image";
 import { money } from "../assets";
 
 const DisconnectedTab = () => {
+  
   return (
     <div className="px-2 md:px-16 -mt-10 w-full">
       <div className=" md:flex  md:justify-around p-5 my-4 items-center">
-        <div className="md:text-[45px] text-[24px] text-left mx-10 font-bold my-5 max-w-[500px] ">
+        <div className="md:text-[45px] text-[24px] text-center md:text-left mx-10 font-bold my-5 max-w-[500px] ">
           <p>Crypto Lending made easy, borrow with easy with <span className="text-[#854CFF]">DefiConnect</span></p>
-          <div className="flex justify-start items-center text-sm md:text-base mt-4 md:mt-6">
-            <div className="mr-5 button_border rounded-full p-3 hover:bg-gray-900 cursor-pointer px-6"> Get started</div>
+          <div className="flex justify-center md:justify-start items-center text-sm md:text-base mt-4 md:mt-6">
+            <div className="mr-5 button_border text-xs md:text-sm lg:text-base rounded-full p-3 hover:bg-gray-900 cursor-pointer px-6 font-light"> Get started</div>
             <ConnectButton />
           </div>
         </div>
