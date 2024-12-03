@@ -1,4 +1,4 @@
-import { ethIcon, usdcIcon, daiIcon, usdtIcon } from "./assets";
+import { ethIcon, usdcIcon, daiIcon, usdtIcon, btcIcon} from "./assets";
 
 // For localhost
 import {
@@ -6,20 +6,20 @@ import {
   DDAITokenAddress,
   DUSDTTokenAddress,
   DUSDCTokenAddress,
-  // DWBTCTokenAddress
+  DWBTCTokenAddress
 
 } from "./addresses";
 
 export const token = [
+  
   {
-    image: ethIcon,
-    name: "ETH",
-    address: ETHAddress,
+    image: btcIcon,
+    name: "BTC",
+    address: DWBTCTokenAddress,
     decimal: "18",
     apy: 3,
     isCollateral: true,
   },
-
   {
     image: daiIcon,
     name: "DAI",
@@ -44,13 +44,14 @@ export const token = [
     apy: 3,
     isCollateral: true,
   },
-  // {
-  //   image: btcIcon,
-  //   name: "WBTC",
-  //   address: DWBTCTokenAddress,
-  //   decimal: "18",
-  //   apy: 3,
-  //   isCollateral: true,
-  // },
+  
+  {
+    image: btcIcon,
+    name: "WBTC",
+    address: ETHAddress,
+    decimal: "18",
+    apy: 3,
+    isCollateral: true,
+  },
   
 ];

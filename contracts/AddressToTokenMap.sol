@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.6;
+pragma solidity ^0.8.20;
 
 contract AddressToTokenMap{
-    address owner;
+    address public immutable owner;
     // token address => Symbol for Symbol retrieval
     mapping(address => string) private addresses;
     // token address => tokenToUSD pair PriceFeed Address
@@ -31,7 +31,7 @@ contract AddressToTokenMap{
     * @dev : maps token address to symbol
     * @params : token address , symbol string
     */
-    function _setAddress(address _key, string memory _value) public onlyOwner {
+    function _setAddress(address _key, string memory _value) external onlyOwner {
         // Avoids updating addresses[_key] if the new value is the same as the current value
         bytes memory valueBytes = bytes(_value);
         bytes memory keyBytes = bytes(addresses[_key]);
@@ -52,7 +52,7 @@ contract AddressToTokenMap{
     * @params : token address 
     * @returns : price feed address
     */
-    function getPriceFeedMap(address _tokenAddress) public view returns(address) {
+    function getPriceFeedMap(address _tokenAddress) external view returns(address) {
         return priceFeedMap[_tokenAddress];
     }
 
@@ -60,14 +60,14 @@ contract AddressToTokenMap{
     * @dev : maps token address to sepolia/mainnet chainlink price feed address
     * @params : token address , price feed address
     */
-    function _setPriceFeedMap(address _tokenAddress, address _pairAddress) public onlyOwner{
+    function _setPriceFeedMap(address _tokenAddress, address _pairAddress) external onlyOwner{
         if (priceFeedMap[_tokenAddress] != _pairAddress) {
             priceFeedMap[_tokenAddress] = _pairAddress;
         }
     }
 
     /* 
-    * @dev : returns true fif the address's symbol is ETH
+    * @dev : returns true if the address's symbol is ETH
     * @params : token address
     * returns : boolean 
     */

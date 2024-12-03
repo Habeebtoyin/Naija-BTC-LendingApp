@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.6;
+pragma solidity ^0.8.20;
 
 contract LendingConfig {
 
-    address owner;
+    address public immutable owner;
     enum Freeze { FREEZE, UNFREEZE}
     enum AssetStatus { ACTIVE, INACTIVE }
 
@@ -61,7 +61,7 @@ contract LendingConfig {
     * @dev : updates the lending interest rate
     * @params : uint new interest rate
     */
-    function updateInterestRate(uint256 _interestRate) public onlyOwner{
+    function updateInterestRate(uint256 _interestRate) external onlyOwner{
         if(INTEREST_RATE != _interestRate) {
             INTEREST_RATE = _interestRate;
         }
@@ -71,7 +71,7 @@ contract LendingConfig {
     * @dev : updates the borrowing interest rate
     * @params : uint _newBorrowRate
     */
-    function updateBorrowRate(uint256 _borrowRate) public onlyOwner {
+    function updateBorrowRate(uint256 _borrowRate) external onlyOwner {
         if(BORROW_RATE != _borrowRate) {
             BORROW_RATE = _borrowRate;
         }
@@ -118,7 +118,7 @@ contract LendingConfig {
     * @dev : Returns stored asset
     * @returns : All recorded assets - Array of the Asset struct
     */
-    function getAssets() public view returns(Asset[] memory) {
+    function getAssets() external view returns(Asset[] memory) {
         return assets;
     }
 
@@ -127,7 +127,7 @@ contract LendingConfig {
     * @params : token address
     * @returns : bool - true is asset is present in the array
     */
-    function isTokenInAssets(address _token) public view returns(bool){
+    function isTokenInAssets(address _token) external view returns(bool){
         uint256 assetCount = assets.length;
         for (uint i = 0; i < assetCount; i++) {
             if (assets[i].token == _token){
@@ -180,7 +180,7 @@ contract LendingConfig {
     * @params : token address
     * @returns : Asset struct
     */
-    function getAssetByTokenAddress(address _token) public view returns (Asset memory) {
+    function getAssetByTokenAddress(address _token) external view returns (Asset memory) {
         require(_token != address(0), "Invalid token address");
         uint256 assetsLen = assets.length;
         for (uint256 i = 0; i < assetsLen; i++) {
@@ -196,7 +196,7 @@ contract LendingConfig {
     * @params : string symbol
     * @returns : Asset struct
     */
-    function getAssetByTokenSymbol(string memory _symbol) public view returns (Asset memory) {
+    function getAssetByTokenSymbol(string memory _symbol) external view returns (Asset memory) {
         uint256 assetIndex = symbolToAssetIndex[_symbol];
         require(
             assetIndex < assets.length && 
@@ -211,7 +211,7 @@ contract LendingConfig {
     * @params : address token
     * @returns : bool
     */
-    function isBorrowingEnabled(address _token) public view returns(bool) {
+    function isBorrowingEnabled(address _token) external view returns(bool) {
         uint256 assetsLen = assets.length;
         for(uint i=0; i < assetsLen; i++) {
             if(assets[i].token == _token) {

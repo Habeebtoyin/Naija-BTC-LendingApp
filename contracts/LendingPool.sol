@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.6;
+pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+
 import "./AddressToTokenMap.sol";
 import "./LendingConfig.sol";
 import "./LendingHelper.sol";
@@ -14,7 +15,8 @@ contract LendingPool is ReentrancyGuard {
     AddressToTokenMap addressToTokenMap;
     LendingConfig lendingConfig;
     LendingHelper lendingHelper;
-    uint256 private constant WITHDRAWALFEE= 2;
+    uint256 private constant WITHDRAWALFEE= 20; 
+    uint256 public constant PRICISSION = 10_000;// 0.2%
     address private feeWallet;
 
     enum TxMode { BORROW, WITHDRAW}
@@ -100,7 +102,7 @@ contract LendingPool is ReentrancyGuard {
     * @dev : this function allows a lender to lend assets to the Dapp
     * @params : address token, uint amount
     */
-    function lend(address _token, uint256 _amount) public 
+    function lend(address _token, uint256 _amount) external
     nonReentrant
     updateEarnedInterestOnLend(msg.sender, _token)
     payable 
@@ -178,7 +180,7 @@ contract LendingPool is ReentrancyGuard {
     function withdraw(address _token, uint256 _amount) external 
     nonReentrant
     updateEarnedInterestOnLend(msg.sender, _token)
-    payable returns(bool) {
+     returns(bool) {
         address lender  = msg.sender;
 
         require(isLenderTokenOwner(_token), "Not token owner");
@@ -204,22 +206,27 @@ contract LendingPool is ReentrancyGuard {
             }
         }
             
-        uint256 withdrawFee = _amount * WITHDRAWALFEE / 100;
+        uint256 withdrawFee = (_amount * WITHDRAWALFEE) / PRICISSION;
         uint256 netAmount = _amount - withdrawFee;
 
         if(addressToTokenMap.isETH(_token)) {
-            (bool success, ) = payable(lender).call{value: netAmount}("");
+
+            payable(feeWallet).transfer(withdrawFee);
+
+            (bool success, ) = lender.call{value: netAmount}("");
             if (!success) {
                 revert("Transfer to Lender wallet not successful");
             }
         }else if(!addressToTokenMap.isETH(_token)){
+            
+            SafeERC20.safeTransfer(IERC20(_token), feeWallet, withdrawFee);
 
             SafeERC20.safeTransfer(IERC20(_token), lender, netAmount);
         }else {
             revert("Failed to Transfer the Token");
         }
 
-        SafeERC20.safeTransfer(IERC20(_token), feeWallet, withdrawFee);
+        
 
 
         emit Withdraw(lender, _token, _amount);

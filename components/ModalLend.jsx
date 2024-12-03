@@ -53,7 +53,7 @@ const ModalLend = ({
           getBalanceInUSD(balance);
         } else {
           if (name == "ETH") {
-            if (input >= 1) {
+            if (input >= 0) {
               setInputValue(input);
             }
           } else {

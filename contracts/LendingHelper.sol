@@ -1,7 +1,8 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.6;
+pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./AggregatorV3Interface.sol";
 import "./AddressToTokenMap.sol";
 import "./LendingConfig.sol";
@@ -20,7 +21,7 @@ contract LendingHelper {
     * @params : account address, token address
     * @returns: uint balance of the account and token
     */
-    function getTokenBalance(address _address, address _token) public view returns(uint) {
+    function getTokenBalance(address _address, address _token) external view returns(uint) {
         return IERC20(_token).balanceOf(_address);
     }
 
@@ -29,7 +30,7 @@ contract LendingHelper {
     * @params : uint x , uint y 
     * @returns : uint 
     */
-    function min(uint x, uint y) public pure returns (uint) {
+    function min(uint x, uint y) external pure returns (uint) {
         return x <= y ? x : y;
     }
 
@@ -38,7 +39,7 @@ contract LendingHelper {
     * @params : uint x , uint y 
     * @returns : uint 
     */
-    function max(uint x, uint y) public pure returns (uint) {
+    function max(uint x, uint y) external pure returns (uint) {
         return x >= y ? x : y;
     }
 
@@ -47,7 +48,7 @@ contract LendingHelper {
     * @params : uint startTimestamp, uint totalSupply
     * @returns: uint reward per holding
     */
-    function rewardPerToken(uint startTimeStamp, uint totalTokenSupply) public view returns (uint) {
+    function rewardPerToken(uint startTimeStamp, uint totalTokenSupply) external view returns (uint) {
         if (totalTokenSupply == 0) {
             return 0;
         }
@@ -62,24 +63,31 @@ contract LendingHelper {
     * @returns: uint price
     */
     function getCurrentTokenPrice(address _tokenAddress) public view returns (uint) {
-        // AggregatorV3Interface priceFeed = AggregatorV3Interface(addressToTokenMap.getPriceFeedMap(_tokenAddress));
-        // (, int price, , , ) = priceFeed.latestRoundData();
-        // uint8 decimal = priceFeed.decimals();
-        // return uint(price) / (10 ** decimal);
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(addressToTokenMap.getPriceFeedMap(_tokenAddress));
+        (, int price, , , ) = priceFeed.latestRoundData();
+        uint8 decimal = priceFeed.decimals();
+      
         // --------------------------------------------------
         bytes32 symbol = getKeccackHash(addressToTokenMap.getSymbol(_tokenAddress));
         
         if(symbol == getKeccackHash('ETH')) {
             return 2534;
+            //   return uint(price) / (10 ** decimal);
         }
-        else if(symbol == getKeccackHash('DDAI')) {
+        else if(symbol == getKeccackHash('DAI')) {
             return 1;
+            //   return uint(price) / (10 ** decimal);
         }
-        else if(symbol == getKeccackHash('DUSDC')) {
+        else if(symbol == getKeccackHash('USDC')) {
             return  1;
+            //   return uint(price) / (10 ** decimal);
         }
-        else if(symbol == getKeccackHash('DUSDT')) {
+        else if(symbol == getKeccackHash('USDT')) {
             return 1;
+            //   return uint(price) / (10 ** decimal);
+        } else if (symbol == getKeccackHash('BTC')) {
+
+            return 96000;
         }
         
         return 1;
@@ -99,7 +107,7 @@ contract LendingHelper {
     * @params : token address , uint qty
     * @returns: uint USD amount 
     */
-   function getAmountInUSD(address _token, uint256 _amount) public view returns(uint) {
+   function getAmountInUSD(address _token, uint256 _amount) external view returns(uint) {
         uint totalAmountInDollars = uint(getCurrentTokenPrice(_token)) * (_amount / 1e18 );
         return totalAmountInDollars;
     }
@@ -109,7 +117,7 @@ contract LendingHelper {
     * @params : token address, usd amount
     * @returns: uint qty
     */
-    function getTokensPerUSDAmount(address _token, uint _usdAmount) public view returns(uint) {
+    function getTokensPerUSDAmount(address _token, uint _usdAmount) external view returns(uint) {
         return _usdAmount / getCurrentTokenPrice(_token);
     }
 

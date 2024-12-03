@@ -72,15 +72,31 @@ const FEEWALLET = "0x669c876e0C1Caa8c562E2C9545F203cF4819C923";
 /// Contracts on  Creator Network ///
 ///////////////////////////////////////
 
-const ETHAddress = "0x3bB9f4825eC9d36C2153Bd9D1119CFFd3a6693F6"
-const DDAITokenAddress = "0x7d15Ee7922bc540Ac9230Fc231E28688CB31a3CC"
-const DUSDTTokenAddress = "0x8135e0093D36060b2CB87505023BE8D4bdB58Daf"
-const DUSDCTokenAddress = "0xd6cf8f35578e99457A308aCE8504abFe4C97beCd"
-// const DWBTCTokenAddress = "0x33950C41c72D1a8c559aE312a81F9DA3e42D09D4"
-const AddressToTokenMapAddress = "0xF5CBD0241D176C6cF35564d2F5b701F74a0756E8"
-const LendingConfigAddress = "0xF8A37509C8a1ee397e8585A4C84B02358a2240A8"
-const LendingHelperAddress = "0x8972e85D9C41509F98FC77F61634D4aFa1D709b5"
-const LendingPoolAddress = "0x2b146a5A1AF77dBCCFC71CC26e2169c81fE0703b"
+// const ETHAddress = "0x3bB9f4825eC9d36C2153Bd9D1119CFFd3a6693F6"
+// const DDAITokenAddress = "0x7d15Ee7922bc540Ac9230Fc231E28688CB31a3CC"
+// const DUSDTTokenAddress = "0x8135e0093D36060b2CB87505023BE8D4bdB58Daf"
+// const DUSDCTokenAddress = "0xd6cf8f35578e99457A308aCE8504abFe4C97beCd"
+// // const DWBTCTokenAddress = "0x33950C41c72D1a8c559aE312a81F9DA3e42D09D4"
+// const AddressToTokenMapAddress = "0xF5CBD0241D176C6cF35564d2F5b701F74a0756E8"
+// const LendingConfigAddress = "0xF8A37509C8a1ee397e8585A4C84B02358a2240A8"
+// const LendingHelperAddress = "0x8972e85D9C41509F98FC77F61634D4aFa1D709b5"
+// const LendingPoolAddress = "0x2b146a5A1AF77dBCCFC71CC26e2169c81fE0703b"
+
+
+////////////////////////////////////////
+/// Contracts on  Bitlayer Network   ///
+///////////////////////////////////////
+
+
+const ETHAddress = "0x3e57d6946f893314324C975AA9CEBBdF3232967E"
+const DDAITokenAddress = "0xDACb984BA1b33B555566819c8a00Dd3E2E723D36"
+const DUSDTTokenAddress = "0xdC519C585DD0400510cC9944b2b30643183C52aA"
+const DUSDCTokenAddress = "0x3642A6A166D3cE24c7255E03b74F61A449B14927"
+const DWBTCTokenAddress = "0x3bB9f4825eC9d36C2153Bd9D1119CFFd3a6693F6"
+const AddressToTokenMapAddress = "0xA9449fe6C318Fa109d133e9ac109eC15D7555e82"
+const LendingConfigAddress = "0xf6990FF3424EC81d48122b1926d32932B043E9dd"
+const LendingHelperAddress = "0x9803Bb1026DF9EED5aE2C74d4f9B2eF26C470e10"
+const LendingPoolAddress = "0xa86897A5975D584F2e4265E856EE8E27AF3BDdf0"
 
 /********* PRICE FEED ADDRESSES ***********/
 // Sepolia PF addresses
@@ -102,12 +118,14 @@ const WBTC_USD_PF_ADDRESS = "0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43";
 // const account5 = "0x4B40f99E93A8814be7fDe5F6AaFA5e9823E13728";
 // const account6 = "0x3f39Ae58Cb1148ec1Ad903648319359Cfdc34a02";
 
+
+
 module.exports = {
   ETHAddress,
   DDAITokenAddress,
   DUSDTTokenAddress,
   DUSDCTokenAddress,
-  // DWBTCTokenAddress,
+  DWBTCTokenAddress,
   AddressToTokenMapAddress,
   LendingConfigAddress,
   LendingHelperAddress,

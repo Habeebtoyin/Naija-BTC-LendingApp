@@ -84,13 +84,15 @@ const LendState = (props) => {
         nameOfNetwork = "ONLY";
       }else if(networkName == 66665) {
         nameOfNetwork = "CETH";
+      }else if(networkName == 200810) {
+        nameOfNetwork = "BTC";
       } else {
         console.log("no network name");
       }
       const signer = provider.getSigner();
 
-      if (networkName != 728696 && networkName !=66665) {
-        alert("Please switch your network to Creator or OnlyLayer");
+      if (networkName != 728696 && networkName !=66665 && networkName != 200810) {
+        alert("Please switch your network to Bitcoin Network");
         return;
       }
 
@@ -120,7 +122,7 @@ const LendState = (props) => {
         tokensList.token.map(async (token) => {
           let tok;
 
-          if (token.name != "ETH") {
+          if (token.name != "WBTC") {
             // TODO : getContract()
             // 2. Toke
             const tokenContract = new ethers.Contract(
@@ -350,7 +352,7 @@ const LendState = (props) => {
         ...assets.find((item) => item.token === assetObj.address && item),
         ...assetObj,
       }));
-    // console.log(result);
+    console.log(result);
     return result;
   };
 
@@ -370,7 +372,7 @@ const LendState = (props) => {
       const amountInUSD =
         Number(await contract.getAmountInUSD(address, AMOUNT)) / 1e18;
 
-      // console.log("amountInUSD : " + amountInUSD);
+      console.log("amountInUSD : " + amountInUSD);
       return amountInUSD;
     } catch (error) {
       reportError(error);
@@ -477,7 +479,7 @@ const LendState = (props) => {
       const contract = new ethers.Contract(
         LendingPoolAddress,
         LendingPoolABI.abi,
-        metamaskDetails.provider
+        metamaskDetails.signer
       );
 
       // const contract = getContract(LendingPoolAddress, LendingPoolABI);

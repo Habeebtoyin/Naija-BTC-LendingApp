@@ -5,13 +5,14 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
+    "compile": "npx hardhat compile",
     "deploy:token": "npx hardhat run scripts/TokenDeploy.js --network only",
     "deploy": "npx hardhat run scripts/deploy-only.js --network only"
   },
   "dependencies": {
     "@metamask/detect-provider": "^2.0.0",
     "@next/font": "^13.1.6",
-    "@openzeppelin/contracts": "^4.8.1",
+    "@openzeppelin/contracts": "^5.1.0",
     "boxicons": "^2.1.4",
     "dotenv": "^16.0.3",
     "netlify-cli": "^17.15.0",
