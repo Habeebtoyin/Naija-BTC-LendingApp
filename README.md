@@ -1,11 +1,3 @@
-### Creator Network
+### Lending App on Bitlayer Network(Layer2 Bitcoin compartible with EVM)
+This is a Lending and Borrowing platform that allow Lenders to provide liquidity and earn interest and Borrower could borrow Crypto currency at it own pace.
 
-Network Name: Creator Testnet
-
-RPC Endpoint: https://rpc.creatorchain.io
-
-Chain ID: 66665
-
-Currency Symbol: ETH
-
-Block Explorer: https://explorer.creatorchain.io/stats
