@@ -201,7 +201,7 @@ const LendState = (props) => {
     const contract = new ethers.Contract(
       address,
       abi.abi,
-      metamaskDetails.provider
+      metamaskDetails.signer
     );
     return contract;
   };
@@ -479,7 +479,7 @@ const LendState = (props) => {
       const contract = new ethers.Contract(
         LendingPoolAddress,
         LendingPoolABI.abi,
-        metamaskDetails.signer
+        metamaskDetails.provider
       );
 
       // const contract = getContract(LendingPoolAddress, LendingPoolABI);
@@ -531,10 +531,15 @@ const LendState = (props) => {
   const getYourBorrows = async () => {
     console.log("4. Getting Your Borrows");
     try {
-      const contract = await getContract(LendingPoolAddress, LendingPoolABI);
-      const yourBorrows = await contract
-        .connect(metamaskDetails.signer)
-        .getBorrowerAssets(metamaskDetails.currentAccount);
+      // const contract = await getContract(LendingPoolAddress, LendingPoolABI);
+      // const contract = await getContract(LendingPoolAddress, LendingPoolABI);
+      const contract = new ethers.Contract(
+        LendingPoolAddress,
+        LendingPoolABI.abi,
+        metamaskDetails.provider
+      );
+      console.log(contract)
+      const yourBorrows = await contract.connect(metamaskDetails.signer).getBorrowerAssets(metamaskDetails.currentAccount);
 
       // console.log("*** calling objectifyBorrowedAssets from getYourBorrows");
       const yourBorrowsObject = await objectifyBorrowedAssets(yourBorrows);
